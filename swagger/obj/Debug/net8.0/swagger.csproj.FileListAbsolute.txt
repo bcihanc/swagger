@@ -32,3 +32,4 @@
 /Users/cihan/RiderProjects/swagger/swagger/obj/Debug/net8.0/swagger.genruntimeconfig.cache
 /Users/cihan/RiderProjects/swagger/swagger/obj/Debug/net8.0/ref/swagger.dll
 /Users/cihan/RiderProjects/swagger/swagger/bin/Debug/net8.0/Swashbuckle.AspNetCore.Annotations.dll
+/Users/cihan/RiderProjects/swagger/swagger/obj/Debug/net8.0/swagger.sourcelink.json

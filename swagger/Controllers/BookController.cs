@@ -1,42 +1,43 @@
 using Microsoft.AspNetCore.Mvc;
+using swagger.DTOs;
 using Swashbuckle.AspNetCore.Annotations;
 
 namespace swagger.Controllers
 {
   
-  [Route("api/darft")]
+  [Route("api/library")]
   [ApiController]
   public class BookController : ControllerBase
   {
     
     [HttpPost]
     [Route("book")]
-    [SwaggerResponse(200, "The product was created", typeof(BookResponse))]
-    [SwaggerResponse(400, "The product data is invalid")]
+    [SwaggerResponse(201, "The book was created")]
     [SwaggerOperation(
-      Summary = "Creates a new product",
+      Summary = "Creates a new book",
       Description = "Requires admin privileges",
-      OperationId = "CreateProduct",
-      Tags = new[] { "user" }
+      Tags = new[] { "admin" }
     )]
-    public IActionResult GetBook(BookBodyRequest request)
+    public IActionResult CreateBook(BookBodyRequest request)
     {
       return Ok();
     }
     
-    // 'http://localhost:5091/api/darft/author/123'
     [HttpGet]
-    [Route("author/{id}")]
-    public IActionResult GetAuthor(String id)
+    [Route("book/{id}")]
+    [SwaggerOperation(Tags = new[] { "admin", "user" })]
+    [SwaggerResponse(201, "", typeof(BookResponse))]
+    public IActionResult GetBook(String id)
     {
       return Ok();
     }
   
   
-    // 'http://localhost:5091/api/darft/exam-questions?examId=123'
     [HttpGet]
-    [Route("exam-questions")]
-    public IActionResult GetExamQuestions(String examId)
+    [Route("book")]
+    [SwaggerOperation(Tags = new[] { "admin", "user" })]
+    [SwaggerResponse(201, "get the books by filters", typeof(List<BookResponse>))]
+    public IActionResult GetExamQuestions(String authorId)
     {
       return Ok();
     }
